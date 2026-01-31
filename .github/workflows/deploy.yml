@@ -2,23 +2,24 @@ name: Deploy Moltbot
 
 on:
   push:
-      branches: [ main ]
+      branches:
+            - main
 
-      jobs:
-        deploy:
-            runs-on: ubuntu-latest
-                steps:
-                      - name: Checkout code
-                              uses: actions/checkout@v3
+            jobs:
+              deploy:
+                  runs-on: ubuntu-latest
+                      steps:
+                            - name: Checkout code
+                                    uses: actions/checkout@v3
 
-                                    - name: Set up Node.js
-                                            uses: actions/setup-node@v3
-                                                    with:
-                                                              node-version: '22'
+                                          - name: Set up Node.js
+                                                  uses: actions/setup-node@v3
+                                                          with:
+                                                                    node-version: '22'
 
-                                                                    - name: Install OpenClaw
-                                                                            run: npm install -g openclaw@latest
+                                                                          - name: Install OpenClaw
+                                                                                  run: npm install -g openclaw@latest
 
-                                                                                  - name: Deployment Message
-                                                                                          run: echo "Moltbot 程式碼已更新。請確保您的伺服器已同步並重啟服務。"
-                                                                                          
+                                                                                        - name: Deployment Message
+                                                                                                run: echo "Moltbot 程式碼已更新。請確保您的伺服器已同步並重啟服務。"
+                                                                                                
